@@ -1,0 +1,23 @@
+
+-=// Ferguson SRB1 (BSB D-MAC receiver/decoder) \\=-
+
+An emulator for exploring a 90s satellite from BSB, a
+UK satellite TV service that lasted less than a year.
+
+Current status: Can display the LED digits and various
+OSD displays, but not much else. There are probably bugs
+in the 65c02 emulator too. The charset is incomplete and
+there is no IR remote control support yet.
+
+firmware-srb1.bin: FerR2.0e
+firmware-acm.bin: ACM firmware V1.50
+bbram-acm.bin: Optional ACM battery backed RAM
+
+UI keys:
+
+   esc = Quit
+   q   = Standby
+   w   = P+
+   e   = P-
+   r   = Setup
+
