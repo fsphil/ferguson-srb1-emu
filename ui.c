@@ -27,7 +27,7 @@ static void _render_ui(struct sdl_ui *ui)
 	int i;
 	
 	/* Blue background for OSD (TODO: Use actual background attributes) */
-	drect = (SDL_Rect) { 0, 0, 594, 540 };
+	drect = (SDL_Rect) { 0, 0, 594, 516 };
 	SDL_SetRenderDrawColor(ui->renderer, 0x00, 0x00, 0xFF, 0x00);
 	SDL_RenderFillRect(ui->renderer, &drect);
 	
@@ -49,7 +49,7 @@ static void _render_ui(struct sdl_ui *ui)
 	}
 	
 	/* Dark grey background for control panel */
-	drect = (SDL_Rect) { 0, 540, 594, 540 + 64 };
+	drect = (SDL_Rect) { 0, 516, 594, 516 + 64 };
 	SDL_SetRenderDrawColor(ui->renderer, 0x10, 0x10, 0x10, 0x00);
 	SDL_RenderFillRect(ui->renderer, &drect);
 	
@@ -57,7 +57,7 @@ static void _render_ui(struct sdl_ui *ui)
 	for(i = 0; i < 4; i++)
 	{
 		srect = (SDL_Rect) { (8 + i) * 48, 0, 48, 64 };
-		drect = (SDL_Rect) { i * 48, 540, srect.w, srect.h };
+		drect = (SDL_Rect) { i * 48, 516, srect.w, srect.h };
 		
 		/* Highlight pressed buttons */
 		if(ui->buttons & (1 << i))
@@ -76,7 +76,7 @@ static void _render_ui(struct sdl_ui *ui)
 	for(i = 0; i < 8; i++)
 	{
 		srect = (SDL_Rect) { i * 48, 0, 48, 64 };
-		drect = (SDL_Rect) { 594 - 48 * 2, 540, srect.w, srect.h };
+		drect = (SDL_Rect) { 594 - 48 * 2, 516, srect.w, srect.h };
 		
 		if(ui->msd & (1 << i)) SDL_SetTextureColorMod(ui->led, 0xFF, 0x00, 0x00);
 		else SDL_SetTextureColorMod(ui->led, 0x20, 0x10, 0x10);
@@ -153,7 +153,7 @@ int ui_start(struct sdl_ui *ui)
 	SDL_Init(SDL_INIT_TIMER | SDL_INIT_VIDEO);
 	IMG_Init(IMG_INIT_PNG);
 	
-	SDL_CreateWindowAndRenderer(594, 540 + 64, 0, &ui->window, &ui->renderer);
+	SDL_CreateWindowAndRenderer(594, 516 + 64, 0, &ui->window, &ui->renderer);
 	ui->led = IMG_LoadTexture(ui->renderer, "7led.png");
 	ui->charset = IMG_LoadTexture(ui->renderer, "charset.png");
 	
