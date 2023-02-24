@@ -69,7 +69,7 @@ static const struct _instr_t _instrs[0x100] =
 	/* 0x0x */
 	{ "BRK",  _immediate,     2 },
 	{ "ORA",  _zp_indirect_x, 2, _Z | _N },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       2 },
 	{ "",     _invalid,       1 },
 	{ "TSB",  _zp,            2, _Z },
 	{ "ORA",  _zp,            2, _Z | _N },
@@ -105,7 +105,7 @@ static const struct _instr_t _instrs[0x100] =
 	/* 0x2x */
 	{ "JSR",  _absolute,      3 },
 	{ "AND",  _zp_indirect_x, 2, _Z | _N },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       2 },
 	{ "",     _invalid,       1 },
 	{ "BIT",  _zp,            2, _Z },
 	{ "AND",  _zp,            2, _Z | _N },
@@ -141,9 +141,9 @@ static const struct _instr_t _instrs[0x100] =
 	/* 0x4x */
 	{ "RTI",  _implicit,      1 },
 	{ "EOR",  _zp_indirect_x, 2, _Z | _N },
+	{ "",     _invalid,       2 },
 	{ "",     _invalid,       1 },
-	{ "",     _invalid,       1 },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       2 },
 	{ "EOR",  _zp,            2, _Z | _N },
 	{ "LSR",  _zp,            2, _Z | _N | _C },
 	{ "RMB4", _zp,            2 },
@@ -161,7 +161,7 @@ static const struct _instr_t _instrs[0x100] =
 	{ "EOR",  _zp_indirect_y, 2, _Z | _N },
 	{ "EOR",  _zp_indirect,   2, _Z | _N },
 	{ "",     _invalid,       1 },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       2 },
 	{ "EOR",  _zp_x,          2, _Z | _N },
 	{ "LSR",  _zp_x,          2, _Z | _N },
 	{ "RMB5", _zp,            2 },
@@ -169,7 +169,7 @@ static const struct _instr_t _instrs[0x100] =
 	{ "EOR",  _absolute_y,    3, _Z | _N },
 	{ "PHY",  _implicit,      1 },
 	{ "",     _invalid,       1 },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       3 },
 	{ "EOR",  _absolute_x,    3, _Z | _N },
 	{ "LSR",  _absolute_x,    3, _Z | _N | _C },
 	{ "BBR5", _zp_relative,   3 },
@@ -177,7 +177,7 @@ static const struct _instr_t _instrs[0x100] =
 	/* 0x6x */
 	{ "RTS",  _implicit,      1 },
 	{ "ADC",  _zp_indirect_x, 2, _N | _Z | _C | _V },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       2 },
 	{ "",     _invalid,       1 },
 	{ "STZ",  _zp,            2 },
 	{ "ADC",  _zp,            2, _N | _Z | _C | _V },
@@ -213,7 +213,7 @@ static const struct _instr_t _instrs[0x100] =
 	/* 0x8x */
 	{ "BRA",  _relative,      2 },
 	{ "STA",  _zp_indirect_x, 2 },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       2 },
 	{ "",     _invalid,       1 },
 	{ "STY",  _zp,            2 },
 	{ "STA",  _zp,            2 },
@@ -285,7 +285,7 @@ static const struct _instr_t _instrs[0x100] =
 	/* 0xCx */
 	{ "CPY",  _immediate,     2, _Z | _N | _C },
 	{ "CMP",  _zp_indirect_x, 2, _Z | _N | _C },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       2 },
 	{ "",     _invalid,       1 },
 	{ "CPY",  _zp,            2, _Z | _N | _C },
 	{ "CMP",  _zp,            2, _Z | _N | _C },
@@ -305,7 +305,7 @@ static const struct _instr_t _instrs[0x100] =
 	{ "CMP",  _zp_indirect_y, 2, _Z | _N | _C },
 	{ "CMP",  _zp_indirect,   2, _Z | _N | _C },
 	{ "",     _invalid,       1 },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       2 },
 	{ "CMP",  _zp_x,          2, _Z | _N | _C },
 	{ "DEC",  _zp_x,          2, _Z | _N },
 	{ "SMB5", _zp,            2 },
@@ -313,7 +313,7 @@ static const struct _instr_t _instrs[0x100] =
 	{ "CMP",  _absolute_y,    3, _Z | _N | _C },
 	{ "PHX",  _implicit,      1 },
 	{ "STP",  _implicit,      1 },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       3 },
 	{ "CMP",  _absolute_x,    3, _Z | _N | _C },
 	{ "DEC",  _absolute_x,    3, _Z | _N },
 	{ "BBS5", _zp_relative,   3 },
@@ -321,7 +321,7 @@ static const struct _instr_t _instrs[0x100] =
 	/* 0xEx */
 	{ "CPX",  _immediate,     2, _Z | _N | _C },
 	{ "SBC",  _zp_indirect_x, 2, _N | _Z | _C | _V },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       2 },
 	{ "",     _invalid,       1 },
 	{ "CPX",  _zp,            2, _Z | _N | _C },
 	{ "SBC",  _zp,            2, _N | _Z | _C | _V },
@@ -341,7 +341,7 @@ static const struct _instr_t _instrs[0x100] =
 	{ "SBC",  _zp_indirect_y, 2, _N | _Z | _C | _V },
 	{ "SBC",  _zp_indirect,   2, _N | _Z | _C | _V },
 	{ "",     _invalid,       1 },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       2 },
 	{ "SBC",  _zp_x,          2, _N | _Z | _C | _V },
 	{ "INC",  _zp_x,          2, _Z | _N },
 	{ "SMB7", _zp,            2 },
@@ -349,7 +349,7 @@ static const struct _instr_t _instrs[0x100] =
 	{ "SBC",  _absolute_y,    3, _N | _Z | _C | _V },
 	{ "PLX",  _implicit,      1, _Z | _N },
 	{ "",     _invalid,       1 },
-	{ "",     _invalid,       1 },
+	{ "",     _invalid,       3 },
 	{ "SBC",  _absolute_x,    3, _N | _Z | _C | _V },
 	{ "INC",  _absolute_x,    3, _Z | _N },
 	{ "BBS7", _zp_relative,   3 },
@@ -419,15 +419,30 @@ static inline uint8_t _cmp(struct cpu_65c02_t *s, uint8_t r, uint8_t m)
 
 static inline uint8_t _adc(struct cpu_65c02_t *s, uint8_t m)
 {
-	uint16_t sum = s->a + m + s->c;
+	uint16_t sum;
+	
+	if(s->d)
+	{
+		sum = (s->a & 0x0F) + (m & 0x0F) + s->c;
+		if(sum >= 0x0A) sum += 0x06;
+		
+		sum += (s->a & 0xF0) + (m & 0xF0);
+		if(sum >= 0xA0) sum += 0x60;
+	}
+	else
+	{
+		sum = s->a + m + s->c;
+	}
+	
 	s->c = sum > 0xFF ? 1 : 0;
 	s->v = (~(s->a ^ m) & (s->a ^ sum) & 0x80) ? 1 : 0;
+	
 	return(sum & 0xFF);
 }
 
 static inline uint8_t _sbc(struct cpu_65c02_t *s, uint8_t m)
 {
-	return(_adc(s, ~m));
+	return(_adc(s, s->d ? 0x99 - m : ~m));
 }
 
 static inline uint8_t _pack_status(struct cpu_65c02_t *s)
@@ -650,6 +665,7 @@ void cpu_65c02_exec(struct cpu_65c02_t *s)
 	case 0x0F: if((_read_u8(s, m8) & 0x01) == 0) s->pc += m8b; break; /* BBR0 $zp,$raddr */
 	case 0x10: if(!s->n) s->pc += (int8_t) m8; break; /* BPL $raddr */
 	case 0x11: r = s->a |= _read_u8(s, addr); break; /* ORA ($zp),y */
+	case 0x12: r = s->a |= _read_u8(s, addr); break; /* ORA ($zp) */
 	case 0x14: r = _read_u8(s, addr); _write_u8(s, addr, r & (0xFF ^ s->a)); r &= s->a; break; /* TRB $zp */
 	case 0x15: r = s->a |= _read_u8(s, addr); break; /* ORA $zp,x */
 	case 0x16: r = _read_u8(s, addr); s->c = r >> 7; r <<= 1; _write_u8(s, addr, r); break; /* ASL $zp,x */
@@ -676,6 +692,8 @@ void cpu_65c02_exec(struct cpu_65c02_t *s)
 	case 0x2F: if((_read_u8(s, m8) & 0x04) == 0) s->pc += m8b; break; /* BBR2 $zp,$raddr */
 	case 0x30: if(s->n) s->pc += (int8_t) m8; break; /* BMI $raddr */
 	case 0x31: r = s->a &= _read_u8(s, addr); break; /* AND ($zp),y */
+	case 0x32: r = s->a &= _read_u8(s, addr); break; /* AND ($zp) */
+	case 0x34: r = _read_u8(s, addr); s->n = r >> 7; s->v = (r >> 6) & 1; r &= s->a; break; /* BIT $zp,x */
 	case 0x35: r = s->a &= _read_u8(s, addr); break; /* AND $zp,x */
 	case 0x36: r = _read_u8(s, addr); tc = s->c; s->c = r >> 7; r = (r << 1) | tc; _write_u8(s, addr, r); break; /* ROL $zp,x */
 	case 0x37: r = _read_u8(s, addr) & 0xF7; _write_u8(s, addr, r); break; /* RMB3 $zp */
@@ -700,6 +718,7 @@ void cpu_65c02_exec(struct cpu_65c02_t *s)
 	case 0x4F: if((_read_u8(s, m8) & 0x10) == 0) s->pc += m8b; break; /* BBR4 $zp,$raddr */
 	case 0x50: if(!s->v) s->pc += (int8_t) m8; break; /* BVC $raddr */
 	case 0x51: r = s->a ^= _read_u8(s, addr); break; /* EOR ($zp),y */
+	case 0x52: r = s->a ^= _read_u8(s, addr); break; /* EOR ($zp) */
 	case 0x55: r = s->a ^= _read_u8(s, addr); break; /* EOR $zp,x */
 	case 0x56: r = _read_u8(s, addr); s->c = r & 1; r >>= 1; _write_u8(s, addr, r); break; /* LSR $zp,x */
 	case 0x57: r = _read_u8(s, addr) & 0xDF; _write_u8(s, addr, r); break; /* RMB5 $zp */
@@ -724,6 +743,7 @@ void cpu_65c02_exec(struct cpu_65c02_t *s)
 	case 0x6F: if((_read_u8(s, m8) & 0x40) == 0) s->pc += m8b; break; /* BBR6 $zp,$raddr */
 	case 0x70: if(s->v) s->pc += (int8_t) m8; break; /* BVS $raddr */
 	case 0x71: r = s->a = _adc(s, _read_u8(s, addr)); break; /* ADC ($zp),y */
+	case 0x72: r = s->a = _adc(s, _read_u8(s, addr)); break; /* ADC ($zp) */
 	case 0x74: _write_u8(s, addr, 0); break; /* STZ $zp,x */
 	case 0x75: r = s->a = _adc(s, _read_u8(s, addr)); break; /* ADC $zp,x */
 	case 0x76: r = _read_u8(s, addr); tc = s->c << 7; s->c = r & 1; r = (r >> 1) | tc; _write_u8(s, addr, r); break; /* ROR $zp,x */
@@ -805,6 +825,7 @@ void cpu_65c02_exec(struct cpu_65c02_t *s)
 	case 0xCF: if(_read_u8(s, m8) & 0x10) s->pc += m8b; break; /* BBS4 $zp,$raddr */
 	case 0xD0: if(!s->z) s->pc += (int8_t) m8; break; /* BNE $raddr */
 	case 0xD1: r = _cmp(s, s->a, _read_u8(s, addr)); break; /* CMP ($zp),y */
+	case 0xD2: r = _cmp(s, s->a, _read_u8(s, addr)); break; /* CMP ($zp) */
 	case 0xD5: r = _cmp(s, s->a, _read_u8(s, addr)); break; /* CMP $zp,x */
 	case 0xD6: r = _read_u8(s, addr) - 1; _write_u8(s, addr, r); break; /* DEC $zp,x */
 	case 0xD7: r = _read_u8(s, addr) | 0x20; _write_u8(s, addr, r); break; /* SMB5 $zp */
@@ -829,6 +850,7 @@ void cpu_65c02_exec(struct cpu_65c02_t *s)
 	case 0xEF: if(_read_u8(s, m8) & 0x40) s->pc += m8b; break; /* BBS6 $zp,$raddr */
 	case 0xF0: if(s->z) s->pc += (int8_t) m8; break; /* BEQ $raddr */
 	case 0xF1: r = s->a = _sbc(s, _read_u8(s, addr)); break; /* SBC ($zp),y */
+	case 0xF2: r = s->a = _sbc(s, _read_u8(s, addr)); break; /* SBC ($zp) */
 	case 0xF5: r = s->a = _sbc(s, _read_u8(s, addr)); break; /* SBC $zp,x */
 	case 0xF6: r = _read_u8(s, addr) + 1; _write_u8(s, addr, r); break; /* INC $zp,x */
 	case 0xF7: r = _read_u8(s, addr) | 0x80; _write_u8(s, addr, r); break; /* SMB7 $zp */
