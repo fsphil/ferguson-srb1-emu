@@ -41,13 +41,6 @@ enum _addr_mode_t {
 	_zp_relative,
 };
 
-enum _opcode_args {
-	_args_none = 0,
-	_args_u8,
-	_args_u8_u8,
-	_args_u16,
-};
-
 #define _C (1 << 0)
 #define _Z (1 << 1)
 #define _I (1 << 2)
@@ -62,7 +55,6 @@ struct _instr_t {
 	uint8_t l;
 	uint8_t mcycles;
 	uint8_t flags;
-	enum _opcode_args args;
 };
 
 static const struct _instr_t _instrs[0x100] =
